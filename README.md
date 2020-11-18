@@ -22,6 +22,44 @@ Dependencies:
   * redis-server >= 2.8.0
   * nodejs >= 4 LTS
   * nginx
+  
+```
+sudo apt-get update
+sudo apt-get install build-essential make nginx -y
+```
+
+Install Redis
+```
+sudo add-apt-repository ppa:chris-lea/redis-server
+sudo apt-get update
+sudo apt-get install redis-server -y
+```
+
+Install go
+```
+curl -O https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz
+tar xvf go1.13.5.linux-amd64.tar.gz
+sudo chown -R root:root ./go
+sudo mv go /usr/local
+```
+
+Setup Go path
+```
+sudo nano ~/.profile
+```
+```
+export GOPATH=$HOME/work
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+```
+```
+source ~/.profile
+```
+
+Install Nodejs
+```
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+sudo apt-get install -y nodejs
+```
 
 **I highly recommend to use Ubuntu 20.04 LTS.**
 
@@ -90,6 +128,17 @@ You can customize the layout using built-in web server with live reload:
 
 Check out <code>www/app/templates</code> directory and edit these templates
 in order to customise the frontend.
+
+#### Add Nicehash capability
+Enter this file `proxy/miner.go` and import
+```
+https://github.com/etclabscore/go-etchash
+```
+
+Then adjust the hasher line
+```
+hasher = ethash.New()
+```
 
 ### Configuration
 
