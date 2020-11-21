@@ -25,7 +25,7 @@ Dependencies:
   
 ```
 sudo apt-get update
-sudo apt-get install build-essential make nginx -y
+sudo apt-get install build-essential software-properties-common make nginx -y
 ```
 
 Install Redis
